@@ -14,5 +14,6 @@ namespace SaaS.Domain.Entities
         public ICollection<Orcamento> Orcamentos { get; set; } = new List<Orcamento>();
 
 
+
     }
 }

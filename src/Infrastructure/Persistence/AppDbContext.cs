@@ -12,6 +12,11 @@ namespace SaaS.Infrastructure.Persistence
 
         // DbSets = tabelas no banco
         public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Servico> Servicos { get; set; }
+        public DbSet<Orcamento> Orcamentos { get; set; }
+        public DbSet<Venda> Vendas { get; set; }
+        public DbSet<Produto> Produtos { get; set; }
+
 
         // Implementa a interface
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
@@ -24,13 +29,40 @@ namespace SaaS.Infrastructure.Persistence
         {
             base.OnModelCreating(modelBuilder);
 
-            // exemplo de configuração
-            modelBuilder.Entity<Cliente>(entity =>
-            {
-                entity.HasKey(e => e.Id);
-                entity.Property(e => e.Nome).IsRequired().HasMaxLength(200);
-                entity.Property(e => e.Cpf).IsRequired().HasMaxLength(11);
-            });
+            //Clientes -> Orçamentos
+            modelBuilder.Entity<Orcamento>()
+          .HasOne(o => o.Cliente)
+          .WithMany(c => c.Orcamentos) //Cliente tem lista de orçamentos
+          .HasForeignKey(o => o.ClienteId)
+          .OnDelete(DeleteBehavior.Restrict);
+
+            //Orçamento -> Venda 
+            modelBuilder.Entity<Venda>()
+          .HasOne(v => v.Orcamento)
+          .WithOne(o => o.Venda)
+          .HasForeignKey<Venda>(v => v.Orcamento.Id)
+          .OnDelete(DeleteBehavior.Restrict);
+
+            //Orçamento + venda
+            modelBuilder.Entity<Venda>()
+          .HasOne(v => v.Orcamento)
+          .WithOne(o => o.Venda)
+          .HasForeignKey<Venda>(v => v.OrcamentoId)
+          .OnDelete(DeleteBehavior.Restrict);
+
+            //Orçamento + serviços
+            modelBuilder.Entity<Servico>()
+            .HasOne(s => s.Orcamento)
+          .WithMany(o => o.Servicos)
+          .HasForeignKey(s => s.OrcamentoId)
+          .OnDelete(DeleteBehavior.Cascade);
+
+          // Orçamento → Produtos (1:N)
+            modelBuilder.Entity<Produto>()
+                .HasOne(p => p.Orcamento)
+                .WithMany(o => o.Produtos)
+                .HasForeignKey(p => p.OrcamentoId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

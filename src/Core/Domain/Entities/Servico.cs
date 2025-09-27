@@ -12,6 +12,9 @@ namespace SaaS.Domain.Entities
         public string Descricao { get; set; } = string.Empty;
         public decimal Valor { get; set; }
 
+        public Guid OrcamentoId { get; set; }
+        public Orcamento Orcamento { get; set; } = null!;
+
         public ICollection<OrcamentoServico> OrcamentoServicos { get; set; } = new List<OrcamentoServico>();
     }
 }

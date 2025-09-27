@@ -8,16 +8,15 @@ namespace SaaS.Domain.Entities
 {
     public class Orcamento : BaseEntity
     {
-        public int ClienteId { get; set; }
+        public Guid ClienteId { get; set; }
         public Cliente Cliente { get; set; }  = null!;
 
         public DateTime Data { get; set; } = DateTime.UtcNow;
         public bool Fechado { get; set; } = false;
         public decimal Total { get; set; }
 
-        public ICollection<OrcamentoProduto> Produtos { get; set; } = new List<OrcamentoProduto>();
-
-        public ICollection<OrcamentoServico> Serviços { get; set; } = new List<OrcamentoServico>();
+        public ICollection<Servico> Servicos { get; set; } = new List<Servico>();
+        public ICollection<Produto> Produtos { get; set; } = new List<Produto>();
 
         public Venda? Venda { get; set; } //Um orçamento pode virar uma venda
     }

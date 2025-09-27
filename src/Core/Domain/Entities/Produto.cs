@@ -14,6 +14,9 @@ namespace SaaS.Domain.Entities
         public decimal PrecoVenda { get; set; }
         public int QuantidadeEstoque { get; set; }
 
+        public Guid OrcamentoId { get; set; }
+        public Orcamento Orcamento { get; set; } = null!;
+
         public ICollection<OrcamentoProduto> OrcamentoProdutos { get; set; } = new List<OrcamentoProduto>();
     }
 }
