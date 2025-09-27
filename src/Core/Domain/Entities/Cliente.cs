@@ -6,12 +6,13 @@ namespace SaaS.Domain.Entities
     public class Cliente : BaseEntity
 
     {
-        public string Nome { get; set; }
-        public string Cpf { get; set; }
-        public string Telefone { get; set; }
-        public string Email { get; set; }
+        public string Nome { get; set; }  = null!;
+        public string Cpf { get; set; }  = null!;
+        public string Telefone { get; set; }  = null!;
+        public string Email { get; set; }  = null!;
 
-        public Guid TentantId { get; set; }
+        public ICollection<Orcamento> Orcamentos { get; set; } = new List<Orcamento>();
+
 
     }
 }
