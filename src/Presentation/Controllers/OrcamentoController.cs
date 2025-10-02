@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -5,6 +6,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SaaS.Domain.Entities;
+using SaaS.Infrastructure.Persistence;
+
+
 
 namespace SaaS.Presentation.Controllers
 {
@@ -22,12 +27,12 @@ namespace SaaS.Presentation.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var orcamentos = await _appDbContext.orcamentos
-            .Include(o => o.Cliente)
-            .Include(o => o.Produtos)
-            .Include(o => o.Servicos)
-            .Include(o => o.Venda)
-            .ToListAsync();
+            var orcamentos = await _appDbContext.Orcamentos
+                .Include(o => o.Cliente)
+                .Include(o => o.Produtos)
+                .Include(o => o.Servicos)
+                .Include(o => o.Venda)
+                .ToListAsync();
 
             return Ok(orcamentos);
         }
@@ -35,14 +40,14 @@ namespace SaaS.Presentation.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(Guid id)
         {
-            var orcamentos = await _appDbContext.Orcamentos
-            .Include(o => o.Cliente)
-            .Include(o => o.Produtos)
-            .Include(o => o.Servicos)
-            .Include(o => o.Venda)
-            .FirstOrDefaultAsync(o => o.Id == id);
+            var orcamento = await _appDbContext.Orcamentos
+                .Include(o => o.Cliente)
+                .Include(o => o.Produtos)
+                .Include(o => o.Servicos)
+                .Include(o => o.Venda)
+                .FirstOrDefaultAsync(o => o.Id == id);
 
-            if (orcamentos == null)
+            if (orcamento == null)
                 return NotFound("Orçamento não encontrado");
 
             return Ok(orcamento);
@@ -57,15 +62,15 @@ namespace SaaS.Presentation.Controllers
             _appDbContext.Orcamentos.Add(orcamento);
             await _appDbContext.SaveChangesAsync();
 
-            return CreatedAction(nameof(GetById), new { id = orcamento.id }, orcamento);
+            return CreatedAtAction(nameof(GetById), new { id = orcamento.Id }, orcamento);
         }
 
         [HttpPost("{id}/fechar")]
         public async Task<IActionResult> Fechar(Guid id)
         {
             var orcamento = await _appDbContext.Orcamentos
-            .Include(o => o.Venda)
-            .FirstOrDefaultAsync(o => o.Id == id);
+                .Include(o => o.Venda)
+                .FirstOrDefaultAsync(o => o.Id == id);
 
             if (orcamento == null)
                 return NotFound("Orçamento não encontrado");
@@ -73,11 +78,13 @@ namespace SaaS.Presentation.Controllers
             if (orcamento.Venda != null)
                 return BadRequest("Este orçamento já foi fechado em uma venda");
 
-            var venda = new venda
+            var venda = new Venda
             {
-                id = Guid.NewGuid(),
-                OrcamentoId = orcamento.id,
-                DataVenda = DateTime.UtcNow
+                Id = Guid.NewGuid(),
+                OrcamentoId = orcamento.Id,
+                Data = DateTime.UtcNow,
+                ValorTotal = orcamento.Total,
+                FormaPagamento = "A definir"
             };
 
             _appDbContext.Vendas.Add(venda);

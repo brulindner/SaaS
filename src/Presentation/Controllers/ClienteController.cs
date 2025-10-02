@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -5,6 +6,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SaaS.Domain.Entities;
+using SaaS.Infrastructure.Persistence;
+
+
 
 namespace SaaS.Presentation.Controllers
 {
@@ -44,7 +49,7 @@ namespace SaaS.Presentation.Controllers
             return Ok(cliente);
         }
 
-        [HttpPost]
+            [HttpPost]
         public async Task<IActionResult> Create([FromBody] Cliente cliente)
         {
             if (cliente == null)
@@ -53,7 +58,7 @@ namespace SaaS.Presentation.Controllers
             _appDbContext.Clientes.Add(cliente);
             await _appDbContext.SaveChangesAsync();
 
-            return CreatedAction(nameof(GetById), new { id = cliente.Id }, cliente);
+            return CreatedAtAction(nameof(GetById), new { id = cliente.Id }, cliente);
         }
 
         [HttpPut("{id}")]

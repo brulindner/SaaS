@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SaaS.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+95261fc13d7aa8741d75efb556520489d04df242")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+532bb878b6d2828cdbdaab0b88b84ca40302bcaf")]
 [assembly: System.Reflection.AssemblyProductAttribute("SaaS.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SaaS.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

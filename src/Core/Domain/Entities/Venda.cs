@@ -8,7 +8,7 @@ namespace SaaS.Domain.Entities
 {
     public class Venda : BaseEntity
     {
-        public int OrcamentoId { get; set; }
+        public Guid OrcamentoId { get; set; } 
         public Orcamento Orcamento { get; set; } = null!;
 
         public DateTime Data { get; set; } = DateTime.UtcNow;

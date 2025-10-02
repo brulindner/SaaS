@@ -4,7 +4,7 @@ using SaaS.Domain.Entities;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Application.Features.Clientes.Commands
+namespace SaaS.Application.Features.Clientes.Commands
 {
     public class CreateClienteCommand : IRequest<Guid>
     {

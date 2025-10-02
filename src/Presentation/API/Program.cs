@@ -3,11 +3,12 @@ using SaaS.Application.Interfaces;
 using SaaS.Application;
 using SaaS.Infrastructure.Persistence;
 using SaaS.Infrastructure.Services;
-using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using MediatR;
 using System.Reflection;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using Microsoft.OpenApi.Models;
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
+using SaaS.Application.Features.Clientes.Commands;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,10 +21,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
 // Adiciona o MediatR e os handlers (comandos e queries)
-builder.Services.AddMediatR(cfg =>
-{
-    cfg.RegisterServicesFromAssembly(typeof(Program).Assembly);
-});
+builder.Services.AddMediatR(typeof(CreateClienteCommand).Assembly);
+
 
 // Configuração dos serviços de Multi-Tenancy
 builder.Services.AddHttpContextAccessor();
@@ -33,9 +32,11 @@ builder.Services.AddScoped<ITenantService, TenantService>();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseMySql(connectionString,
-        ServerVersion.AutoDetect(connectionString),
-        mySqlOptions => mySqlOptions.MigrationsAssembly(typeof(AppDbContext).Assembly.FullName)));
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
+    )
+);
 
 // Registra o DbContext na interface
 builder.Services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<AppDbContext>());

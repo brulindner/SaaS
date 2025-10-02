@@ -43,13 +43,6 @@ namespace SaaS.Infrastructure.Persistence
           .HasForeignKey<Venda>(v => v.Orcamento.Id)
           .OnDelete(DeleteBehavior.Restrict);
 
-            //Orçamento + venda
-            modelBuilder.Entity<Venda>()
-          .HasOne(v => v.Orcamento)
-          .WithOne(o => o.Venda)
-          .HasForeignKey<Venda>(v => v.OrcamentoId)
-          .OnDelete(DeleteBehavior.Restrict);
-
             //Orçamento + serviços
             modelBuilder.Entity<Servico>()
             .HasOne(s => s.Orcamento)

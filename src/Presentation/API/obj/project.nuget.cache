@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Y4ANRc2xmTY=",
-  "success": true,
+  "dgSpecHash": "1JdtvOINTdE=",
+  "success": false,
   "projectFilePath": "C:\\Users\\Padrao\\Documents\\Estudos\\C#\\SaaS\\src\\Presentation\\API\\SaaS.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Padrao\\.nuget\\packages\\fluentvalidation\\12.0.0\\fluentvalidation.12.0.0.nupkg.sha512",
     "C:\\Users\\Padrao\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\12.0.0\\fluentvalidation.dependencyinjectionextensions.12.0.0.nupkg.sha512",
-    "C:\\Users\\Padrao\\.nuget\\packages\\mediatr\\12.2.0\\mediatr.12.2.0.nupkg.sha512",
+    "C:\\Users\\Padrao\\.nuget\\packages\\mediatr\\12.0.1\\mediatr.12.0.1.nupkg.sha512",
     "C:\\Users\\Padrao\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\Padrao\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.1.0\\mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512",
     "C:\\Users\\Padrao\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.3.0\\microsoft.aspnetcore.http.abstractions.2.3.0.nupkg.sha512",
@@ -39,11 +39,22 @@
     {
       "code": "NU1608",
       "level": "Warning",
-      "message": "Versão detectada do pacote fora da restrição de dependência: MediatR.Extensions.Microsoft.DependencyInjection 11.1.0 requer MediatR (>= 11.0.0 && < 12.0.0), mas a versão MediatR 12.2.0 foi resolvida.",
+      "message": "Detected package version outside of dependency constraint: MediatR.Extensions.Microsoft.DependencyInjection 11.1.0 requires MediatR (>= 11.0.0 && < 12.0.0) but version MediatR 12.0.1 was resolved.",
       "projectPath": "C:\\Users\\Padrao\\Documents\\Estudos\\C#\\SaaS\\src\\Presentation\\API\\SaaS.API.csproj",
       "warningLevel": 1,
       "filePath": "C:\\Users\\Padrao\\Documents\\Estudos\\C#\\SaaS\\src\\Presentation\\API\\SaaS.API.csproj",
       "libraryId": "MediatR",
+      "targetGraphs": [
+        "net9.0"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Warning As Error: Detected package downgrade: Pomelo.EntityFrameworkCore.MySql from 9.0.0 to 8.0.0. Reference the package directly from the project to select a different version. \r\n SaaS.API -> SaaS.Infrastructure -> Pomelo.EntityFrameworkCore.MySql (>= 9.0.0) \r\n SaaS.API -> Pomelo.EntityFrameworkCore.MySql (>= 8.0.0)",
+      "projectPath": "C:\\Users\\Padrao\\Documents\\Estudos\\C#\\SaaS\\src\\Presentation\\API\\SaaS.API.csproj",
+      "filePath": "C:\\Users\\Padrao\\Documents\\Estudos\\C#\\SaaS\\src\\Presentation\\API\\SaaS.API.csproj",
+      "libraryId": "Pomelo.EntityFrameworkCore.MySql",
       "targetGraphs": [
         "net9.0"
       ]
