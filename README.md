@@ -15,13 +15,9 @@ O projeto segue os princípios da **Clean Architecture**, dividido em quatro cam
 - **MySQL**
 - **Swagger/OpenAPI**
 
-## 📌 Funcionalidades atuais
-- Cadastro e gerenciamento de **Clientes**.  
-- Cadastro e gerenciamento de **Orçamentos**.  
-- Persistência de dados em banco relacional (MySQL).  
-- Documentação automática da API via Swagger.  
 
 ## 🔮 Próximas funcionalidades
+- Gerenciamento de Clientes, Produtos e Serviços 
 - Controle de estoque.  
 - Geração de PDFs para **Orçamentos** e **Termos de Garantia**.  
 - Dashboard de faturamento (custo, lucro e vendas).  
