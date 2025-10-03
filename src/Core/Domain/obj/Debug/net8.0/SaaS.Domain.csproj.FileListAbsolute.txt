@@ -1,0 +1,12 @@
+C:\Users\Padrao\Documents\Estudos\C#\SaaS\src\Core\Domain\bin\Debug\net8.0\SaaS.Domain.deps.json
+C:\Users\Padrao\Documents\Estudos\C#\SaaS\src\Core\Domain\bin\Debug\net8.0\SaaS.Domain.dll
+C:\Users\Padrao\Documents\Estudos\C#\SaaS\src\Core\Domain\bin\Debug\net8.0\SaaS.Domain.pdb
+C:\Users\Padrao\Documents\Estudos\C#\SaaS\src\Core\Domain\obj\Debug\net8.0\SaaS.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Padrao\Documents\Estudos\C#\SaaS\src\Core\Domain\obj\Debug\net8.0\SaaS.Domain.AssemblyInfoInputs.cache
+C:\Users\Padrao\Documents\Estudos\C#\SaaS\src\Core\Domain\obj\Debug\net8.0\SaaS.Domain.AssemblyInfo.cs
+C:\Users\Padrao\Documents\Estudos\C#\SaaS\src\Core\Domain\obj\Debug\net8.0\SaaS.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Padrao\Documents\Estudos\C#\SaaS\src\Core\Domain\obj\Debug\net8.0\SaaS.Domain.sourcelink.json
+C:\Users\Padrao\Documents\Estudos\C#\SaaS\src\Core\Domain\obj\Debug\net8.0\SaaS.Domain.dll
+C:\Users\Padrao\Documents\Estudos\C#\SaaS\src\Core\Domain\obj\Debug\net8.0\refint\SaaS.Domain.dll
+C:\Users\Padrao\Documents\Estudos\C#\SaaS\src\Core\Domain\obj\Debug\net8.0\SaaS.Domain.pdb
+C:\Users\Padrao\Documents\Estudos\C#\SaaS\src\Core\Domain\obj\Debug\net8.0\ref\SaaS.Domain.dll

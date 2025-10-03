@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "9vlWLhjj+1o=",
+  "dgSpecHash": "vjjYuwiBwqQ=",
   "success": true,
   "projectFilePath": "C:\\Users\\Padrao\\Documents\\Estudos\\C#\\SaaS\\src\\Core\\Domain\\SaaS.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Padrao\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.18\\microsoft.netcore.app.ref.8.0.18.nupkg.sha512",
+    "C:\\Users\\Padrao\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.18\\microsoft.windowsdesktop.app.ref.8.0.18.nupkg.sha512",
+    "C:\\Users\\Padrao\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.18\\microsoft.aspnetcore.app.ref.8.0.18.nupkg.sha512"
+  ],
   "logs": []
 }
