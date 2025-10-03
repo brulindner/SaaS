@@ -13,8 +13,10 @@ using SaaS.Infrastructure.Persistence;
 
 namespace SaaS.Presentation.Controllers
 {
-    [Route("api/[controller]")]
-    public class ClienteController : Controller
+        [ApiController]
+        [Route("api/[controller]")]
+        public class ClienteController : ControllerBase
+
     {
         private readonly AppDbContext _appDbContext;
 

@@ -13,8 +13,10 @@ using SaaS.Infrastructure.Persistence;
 
 namespace SaaS.Presentation.Controllers
 {
+    [ApiController]
     [Route("api/[controller]")]
-    public class OrcamentoController : Controller
+
+    public class OrcamentoController : ControllerBase
     {
         private readonly AppDbContext _appDbContext;
 

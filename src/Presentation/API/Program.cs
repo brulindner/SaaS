@@ -20,6 +20,8 @@ builder.Services.AddSwaggerGen();
 // Adiciona os Controllers
 builder.Services.AddControllers();
 
+
+
 // Adiciona o MediatR e os handlers (comandos e queries)
 builder.Services.AddMediatR(typeof(CreateClienteCommand).Assembly);
 
