@@ -8,12 +8,13 @@ namespace SaaS.Domain.Entities
 {
     public class OrcamentoServico : BaseEntity
     {
-        public int OrcamentoId { get; set; }
+        public Guid OrcamentoId { get; set; }
         public Orcamento Orcamento { get; set; } = null!;
 
-        public int ServicoId { get; set; }
+        public Guid ServicoId { get; set; }
         public Servico Servico { get; set; } = null!;
 
+        public int Quantidade { get; set; }
         public decimal Valor { get; set; }
     }
 }

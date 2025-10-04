@@ -44,14 +44,14 @@ namespace SaaS.Infrastructure.Persistence
           .OnDelete(DeleteBehavior.Restrict);
 
             //Orçamento + serviços
-            modelBuilder.Entity<Servico>()
+            modelBuilder.Entity<OrcamentoServico>()
             .HasOne(s => s.Orcamento)
           .WithMany(o => o.Servicos)
           .HasForeignKey(s => s.OrcamentoId)
           .OnDelete(DeleteBehavior.Cascade);
 
           // Orçamento → Produtos (1:N)
-            modelBuilder.Entity<Produto>()
+            modelBuilder.Entity<OrcamentoProduto>()
                 .HasOne(p => p.Orcamento)
                 .WithMany(o => o.Produtos)
                 .HasForeignKey(p => p.OrcamentoId)
