@@ -8,7 +8,6 @@ namespace SaaS.Domain.Entities
 {
     public class Orcamento : BaseEntity
     {
-        public Guid Id { get; set; }
         public Guid ClienteId { get; set; }
         public Cliente Cliente { get; set; } = null!;
 
